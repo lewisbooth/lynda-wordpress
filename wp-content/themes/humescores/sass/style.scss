@@ -1,8 +1,8 @@
 /*!
 Theme Name: Humescores
-Theme URI: http://underscores.me/
-Author: Morten Rand-Hendriksen
-Author URI: https://mor10.com/courses
+Theme URI: http://github.com/lewisbooth/lynda-wordpress
+Author: Lewis Booth
+Author URI: http://github.com/lewisbooth
 Description: An awsome new Humescores-based theme!
 Version: 1.0.0
 License: GNU General Public License v2 or later
@@ -21,7 +21,7 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 */
 
 /*--------------------------------------------------------------
->>> TABLE OF CONTENTS:
+>>> TABLE OF CONTENTS: 
 ----------------------------------------------------------------
 # Normalize
 # Typography
@@ -86,14 +86,14 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 @import "modules/clearings";
 
 /*--------------------------------------------------------------
-# Widgets
---------------------------------------------------------------*/
-@import "site/secondary/widgets";
-
-/*--------------------------------------------------------------
 # Content
 --------------------------------------------------------------*/
 @import "site/site";
+
+/*--------------------------------------------------------------
+# Widgets
+--------------------------------------------------------------*/
+@import "site/secondary/widgets";
 
 /*--------------------------------------------------------------
 # Infinite scroll
