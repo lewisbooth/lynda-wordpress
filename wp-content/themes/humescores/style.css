@@ -1,9 +1,10 @@
+@charset "UTF-8";
 /*!
 Theme Name: Humescores
-Theme URI: http://github.com/lewisbooth/lynda-wordpress
-Author: Lewis Booth
-Author URI: http://github.com/lewisbooth
-Description: An awsome new Humescores-based theme!
+Theme URI: https://github.com/mor10/humescores/
+Author: Morten Rand-Hendriksen
+Author URI: https://mor10.com/courses
+Description: A new theme for a new time. This theme showcases the best of WordPress and Underscores and is the project for the Building Themes From Scratch Using Underscores course at LinkedIn Learning and Lynda.com.
 Version: 1.0.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -20,7 +21,7 @@ Normalizing styles have been helped along thanks to the fine work of
 Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 */
 /*--------------------------------------------------------------
->>> TABLE OF CONTENTS: 
+>>> TABLE OF CONTENTS:
 ----------------------------------------------------------------
 # Normalize
 # Typography
@@ -263,14 +264,14 @@ button,
 input,
 select,
 textarea {
-	color: #404040;
-	font-family: "PT Serif", Georgia, "Cambria", "Times New Roman", Times, serif;
+	color: #000;
+	font-family: "PT Serif", Georgia, Cambria, "Times New Roman", Times, serif;
 	font-size: 18px;
 	font-size: 1.125rem;
 	line-height: 1.5;
 }
 
-@media screen and (min-width: 700px) {
+@media screen and (min-width: 600px) {
 	body,
 	button,
 	input,
@@ -283,7 +284,7 @@ textarea {
 
 h1, h2, h3, h4, h5, h6 {
 	clear: both;
-	font-family: "Source Sans Pro", "Lucida Grande", "Lucida Sans", "Geneva", Arial, sans-serif;
+	font-family: "Source Sans Pro", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Arial, sans-serif;
 }
 
 h1 {
@@ -311,7 +312,8 @@ h6 {
 }
 
 p {
-	margin-bottom: 1.5em;
+	margin-top: .5em;
+	margin-bottom: 1em;
 }
 
 dfn, cite, em, i {
@@ -319,7 +321,22 @@ dfn, cite, em, i {
 }
 
 blockquote {
-	margin: 0 1.5em;
+	position: relative;
+	margin: 0 0 1em;
+	background: #eee;
+	padding: 1em 2em .5em 5em;
+	font-style: italic;
+}
+
+blockquote:before {
+	position: absolute;
+	top: -.2em;
+	left: -.13em;
+	content: "“";
+	font-family: "Source Sans Pro", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Arial, sans-serif;
+	font-size: 12em;
+	line-height: 100%;
+	color: white;
 }
 
 address {
@@ -381,10 +398,6 @@ blockquote, q {
 	quotes: "" "";
 }
 
-blockquote:before, blockquote:after, q:before, q:after {
-	content: "";
-}
-
 hr {
 	background-color: #ccc;
 	border: 0;
@@ -393,7 +406,7 @@ hr {
 }
 
 ul, ol {
-	margin: 0 0 1.5em 3em;
+	margin: 0 0 1.5em;
 }
 
 ul {
@@ -407,7 +420,7 @@ ol {
 li > ul,
 li > ol {
 	margin-bottom: 0;
-	margin-left: 1.5em;
+	margin-left: .5em;
 }
 
 dt {
@@ -426,13 +439,47 @@ img {
 }
 
 figure {
-	margin: 0 0;
+	margin: 0;
 	/* Extra wide images within figure tags don't overflow the content area. */
 }
 
 table {
+	border-collapse: collapse;
 	margin: 0 0 1.5em;
 	width: 100%;
+}
+
+thread th {
+	border-bottom: 2px solid #bbb;
+	padding-bottom: .5em;
+}
+
+td,
+th {
+	vertical-align: top;
+}
+
+th {
+	padding: .4em;
+	text-align: left;
+}
+
+tr {
+	border-bottom: 1px solid #eee;
+}
+
+td {
+	padding: .4em;
+}
+
+th:first-child,
+td:first-child {
+	padding-left: 0;
+}
+
+th:last-child,
+td:last-child {
+	padding-right: 0;
 }
 
 /*--------------------------------------------------------------
@@ -446,11 +493,11 @@ input[type="submit"] {
 	border-color: black;
 	background: transparent;
 	color: black;
+	font-family: "Source Sans Pro", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Arial, sans-serif;
 	font-size: 20px;
 	font-size: 1.25rem;
 	line-height: 1;
 	padding: .5em 1em;
-	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
 }
 
 button:hover, button:active, button:focus,
@@ -523,15 +570,15 @@ textarea {
 ## Links
 --------------------------------------------------------------*/
 a {
-	color: royalblue;
+	color: #000;
 }
 
 a:visited {
-	color: purple;
+	color: #000;
 }
 
 a:hover, a:focus, a:active {
-	color: midnightblue;
+	color: #b51c35;
 }
 
 a:focus {
@@ -540,6 +587,24 @@ a:focus {
 
 a:hover, a:active {
 	outline: 0;
+}
+
+.page-content a,
+.entry-content a,
+.entry-summary a,
+.comment-content a {
+	text-decoration: none;
+	border-bottom: 3px solid #b51c35;
+}
+
+.page-content a:focus, .page-content a:hover,
+.entry-content a:focus,
+.entry-content a:hover,
+.entry-summary a:focus,
+.entry-summary a:hover,
+.comment-content a:focus,
+.comment-content a:hover {
+	color: #b51c35;
 }
 
 /*--------------------------------------------------------------
@@ -584,7 +649,7 @@ a:hover, a:active {
 	border-radius: 3px;
 	box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
 	clip: auto !important;
-	color: #21759b;
+	color: #000;
 	display: block;
 	font-size: 17.5px;
 	font-size: 1.09375rem;
@@ -670,7 +735,7 @@ a:hover, a:active {
 }
 
 /*--------------------------------------------------------------
-## Global layouts
+## Header
 --------------------------------------------------------------*/
 .header-image {
 	max-height: 60vh;
@@ -685,12 +750,9 @@ a:hover, a:active {
 .site-header {
 	position: relative;
 	padding: 1em;
-	font-family: "Source Sans Pro", "Lucida Grande", "Lucida Sans", "Geneva", Arial, sans-serif;
+	font-family: "Source Sans Pro", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Arial, sans-serif;
 	color: #fff;
 	background-color: #002254;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
 }
 
 @media screen and (min-width: 600px) {
@@ -700,10 +762,10 @@ a:hover, a:active {
 }
 
 .site-branding {
-	min-height: 65px;
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;
+	min-height: 65px;
 }
 
 .custom-logo-link {
@@ -716,7 +778,7 @@ a:hover, a:active {
 	width: auto;
 }
 
-.site-branding-text {
+.site-branding__text {
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;
@@ -754,13 +816,7 @@ a:hover, a:active {
 	font-weight: 100;
 }
 
-@media (max-width: 900px) {
-	.site-header {
-		display: block;
-	}
-}
-
-@media (min-width: 900px) {
+@media screen and (min-width: 900px) {
 	.site-header {
 		display: -webkit-box;
 		display: -ms-flexbox;
@@ -775,14 +831,17 @@ a:hover, a:active {
 		    -ms-flex: 1 0 auto;
 		        flex: 1 0 auto;
 	}
-	#site-navigation {
+	.site-navigation {
 		width: 55%;
 	}
 }
 
+/*
+Header Menu
+*/
 .main-navigation {
 	display: block;
-	font-family: "Source Sans Pro", "Lucida Grande", "Lucida Sans", "Geneva", Arial, sans-serif;
+	font-family: "Source Sans Pro", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Arial, sans-serif;
 	font-weight: 400;
 	clear: left;
 }
@@ -840,15 +899,8 @@ a:hover, a:active {
 	text-decoration: underline;
 }
 
-.main-navigation .current_page_item > a,
-.main-navigation .current-menu-item > a,
-.main-navigation .current_page_ancestor > a,
-.main-navigation .current-menu-ancestor > a {
-	opacity: 0.6;
-}
-
 .main-navigation .menu-item-has-children,
-.main-navigation .page-item-has-children {
+.main-navigation .page_item_has_children {
 	min-width: 218px;
 }
 
@@ -880,11 +932,10 @@ button.dropdown-toggle {
 	border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-/* Toggle small menu and sub-menus on */
-.toggled-on,
+/* Toggle small menu and children on */
+.toggled-on ul,
 .sub-menu.toggled-on {
-	display: block !important;
-	z-index: 2;
+	display: block;
 }
 
 @media screen and (min-width: 600px) {
@@ -930,6 +981,13 @@ button.dropdown-toggle {
 		    -ms-flex-pack: end;
 		        justify-content: flex-end;
 		padding-top: 0;
+		/* If you want dropdowns to open on hover, uncomment this: */
+		/*
+			li:hover > ul,
+				li:focus > ul {
+				display: block;
+			}
+			*/
 	}
 }
 
@@ -942,6 +1000,76 @@ button.dropdown-toggle {
 
 .hentry {
 	margin: 0 0 1.5em;
+}
+
+.entry-header {
+	font-family: "Source Sans Pro", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Arial, sans-serif;
+}
+
+.cat-links {
+	font-size: 90%;
+	font-weight: 700;
+}
+
+.cat-links a {
+	text-decoration: none;
+	text-transform: uppercase;
+	color: #b51c35;
+}
+
+.cat-links a:focus, .cat-links a:hover {
+	background-color: #b51c35;
+	color: white;
+}
+
+.entry-title {
+	margin: .125em 0 .25em;
+	font-size: 2.5em;
+}
+
+@media screen and (min-width: 900px) {
+	.entry-title {
+		font-size: 3em;
+	}
+}
+
+.entry-title a {
+	text-decoration: none;
+	color: black;
+}
+
+.entry-title a:focus, .entry-title a:hover {
+	border-bottom: 5px solid #b51c35;
+}
+
+.entry-meta,
+.entry-footer {
+	font-size: 90%;
+}
+
+.entry-meta a,
+.entry-footer a {
+	font-weight: 700;
+	text-decoration: none;
+	color: black;
+}
+
+.entry-meta a:focus, .entry-meta a:hover,
+.entry-footer a:focus,
+.entry-footer a:hover {
+	color: black;
+	border-bottom: 3px solid #b51c35;
+}
+
+.byline::after {
+	content: "|";
+	margin: 0 .5em;
+}
+
+.comments-link::before,
+.edit-link::before {
+	content: "|";
+	margin: 0 .5em;
 }
 
 .byline,
@@ -965,6 +1093,11 @@ button.dropdown-toggle {
 	margin: 0 0 1.5em;
 }
 
+.entry-footer {
+	margin: 1.5em 0;
+	font-family: "Source Sans Pro", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Arial, sans-serif;
+}
+
 /*--------------------------------------------------------------
 ## Comments
 --------------------------------------------------------------*/
@@ -977,12 +1110,12 @@ button.dropdown-toggle {
 }
 
 /*--------------------------------------------------------------
-## Comments
+## Footer
 --------------------------------------------------------------*/
 .site-footer {
 	position: relative;
 	padding: 1em;
-	font-family: "Source Sans Pro", "Lucida Grande", "Lucida Sans", "Geneva", Arial, sans-serif;
+	font-family: "Source Sans Pro", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Arial, sans-serif;
 	color: #fff;
 	background-color: #002254;
 	text-align: center;
@@ -1002,8 +1135,8 @@ button.dropdown-toggle {
 	    -ms-flex-pack: center;
 	        justify-content: center;
 	list-style-type: none;
-	padding: 0;
 	margin: 0;
+	padding: 0;
 }
 
 .social-menu ul a {
